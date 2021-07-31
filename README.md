@@ -21,6 +21,7 @@ You can configure the default HTTP host and port used by the development server 
 
 ```bash
 lit serve --host 0.0.0.0 --port 4201
+```
 
 You can find all possible blueprints in the table below:
 
