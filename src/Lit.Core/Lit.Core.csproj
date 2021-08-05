@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Scaffolds\ComponentBuilder.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scaffolds\ComponentBuilder.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Builders\" />
     <Folder Include="Features\" />
   </ItemGroup>

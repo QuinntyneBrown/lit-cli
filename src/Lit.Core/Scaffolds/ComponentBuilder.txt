@@ -1,0 +1,33 @@
+﻿import { BehaviorSubject, combineLatest, map, of, Subject, takeUntil, tap } from "rxjs";
+import { StyleInfo } from 'lit/directives/style-map.js';
+import { html, render } from "lit";
+
+
+import "./{{ nameSnakeCase }}.component.scss";
+
+class {{ namePascalCase }}Component extends HTMLElement {
+    private readonly _destroyed$: Subject<void> = new Subject();
+
+    constructor() {
+        super();
+    }
+    
+    static get observedAttributes() {
+        return [
+
+        ];
+    }
+
+    connectedCallback() {    
+        if (!this.shadowRoot) this.attachShadow({ mode: 'open' });
+  
+        render(template, this.shadowRoot)  
+    }
+    
+    disconnectedCallback() {
+        this._destroyed$.next();
+        this._destroyed$.complete();
+    }
+}
+
+window.customElements.define('lit-{{ nameSnakeCase }}', {{ namePascalCase }}Component);
