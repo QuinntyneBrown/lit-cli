@@ -10,7 +10,7 @@ lit help
 ### Generating and serving an lit-html project via a development server
 
 ```bash
-lit new PROJECT-NAME
+lit -n PROJECT-NAME
 cd PROJECT-NAME
 lit serve
 ```
