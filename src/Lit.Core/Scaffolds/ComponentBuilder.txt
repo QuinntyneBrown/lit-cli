@@ -8,20 +8,24 @@ import "./{{ nameSnakeCase }}.component.scss";
 class {{ namePascalCase }}Component extends HTMLElement {
     private readonly _destroyed$: Subject<void> = new Subject();
 
-    constructor() {
-        super();
+    get template() {
+        return html`<h1>{{ namePascalCase }}</h1>`;
     }
-    
+
     static get observedAttributes() {
         return [
 
         ];
     }
 
+    constructor() {
+        super();
+    }
+
     connectedCallback() {    
         if (!this.shadowRoot) this.attachShadow({ mode: 'open' });
   
-        render(template, this.shadowRoot)  
+        render(this.template, this.shadowRoot)  
     }
     
     disconnectedCallback() {
