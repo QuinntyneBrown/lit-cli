@@ -50,11 +50,15 @@ namespace Lit.Core.Features
 
                 _fileSystem.WriteAllLines($"{libDirectory}{Path.DirectorySeparatorChar}index.html", new LibIndexBuilder().Build(_templateLocator));
 
+                _fileSystem.WriteAllLines($"{libDirectory}{Path.DirectorySeparatorChar}.gitignore", new GitIgnoreBuilder().Build(_templateLocator));
+
                 _fileSystem.WriteAllLines($"{libDirectory}{Path.DirectorySeparatorChar}src{Path.DirectorySeparatorChar}index.ts", Array.Empty<string>());
 
                 _commandService.Start("npm install", libDirectory);
 
                 _commandService.Start("code .", libDirectory);
+
+                _commandService.Start("git init", libDirectory);
 
                 _commandService.Start("live-server", libDirectory, false);
 
