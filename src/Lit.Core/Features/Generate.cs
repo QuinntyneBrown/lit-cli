@@ -57,9 +57,9 @@ namespace Lit.Core.Features
 
                 _fileSystem.WriteAllLines($"{directory}{Path.DirectorySeparatorChar}{((Token)request.Name).SnakeCase}.component.ts", new ComponentBuilder(request.Name).Build(_templateLocator, _templateProcessor));
 
-                _commandService.Start("spa .", directory);
+                _commandService.Start("lit .", directory);
 
-                _commandService.Start("spa .", request.Directory);
+                _commandService.Start("lit .", request.Directory);
 
                 return new();
             }

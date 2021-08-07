@@ -5,7 +5,7 @@ import { html, render } from "lit";
 
 import "./{{ nameSnakeCase }}.component.scss";
 
-class {{ namePascalCase }}Component extends HTMLElement {
+export class {{ namePascalCase }}Component extends HTMLElement {
     private readonly _destroyed$: Subject<void> = new Subject();
 
     get template() {
@@ -25,7 +25,7 @@ class {{ namePascalCase }}Component extends HTMLElement {
     connectedCallback() {    
         if (!this.shadowRoot) this.attachShadow({ mode: 'open' });
   
-        render(this.template, this.shadowRoot)  
+        render(this.template, this.shadowRoot as DocumentFragment)  
     }
     
     disconnectedCallback() {
