@@ -8,6 +8,7 @@
     <None Remove="Scaffolds\ComponentBuilder.txt" />
     <None Remove="Scaffolds\IndexBuilder.txt" />
     <None Remove="Scaffolds\LibTSConfigBuilder.txt" />
+    <None Remove="Scaffolds\LibWebpackConfigBuilder.txt" />
     <None Remove="Scaffolds\PackageBuilder.txt" />
     <None Remove="Scaffolds\TSConfigBuilder.txt" />
     <None Remove="Scaffolds\WebpackConfigBuilder.txt" />
@@ -17,6 +18,7 @@
     <EmbeddedResource Include="Scaffolds\IndexBuilder.txt" />
     <EmbeddedResource Include="Scaffolds\PackageBuilder.txt" />
     <EmbeddedResource Include="Scaffolds\LibTSConfigBuilder.txt" />
+    <EmbeddedResource Include="Scaffolds\LibWebpackConfigBuilder.txt" />
     <EmbeddedResource Include="Scaffolds\WebpackConfigBuilder.txt" />
     <EmbeddedResource Include="Scaffolds\TSConfigBuilder.txt" />
     <EmbeddedResource Include="Scaffolds\ComponentBuilder.txt" />

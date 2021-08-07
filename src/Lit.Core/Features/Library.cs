@@ -46,11 +46,15 @@ namespace Lit.Core.Features
 
                 _fileSystem.WriteAllLines($"{libDirectory}{Path.DirectorySeparatorChar}package.json", new PackageBuilder(request.Name).Build(_templateLocator, _templateProcessor));
 
+                _fileSystem.WriteAllLines($"{libDirectory}{Path.DirectorySeparatorChar}webpack.config.js", new LibWebpackConfigBuilder().Build(_templateLocator));
+
                 _fileSystem.WriteAllLines($"{libDirectory}{Path.DirectorySeparatorChar}src{Path.DirectorySeparatorChar}index.ts", Array.Empty<string>());
 
-                _commandService.Start("tsc", libDirectory);
+                _commandService.Start("npm install", libDirectory);
 
                 _commandService.Start("code .", libDirectory);
+
+                _commandService.Start("npx webpack watch", libDirectory);
 
                 return new();
             }
