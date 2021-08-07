@@ -1,6 +1,7 @@
 ﻿{
-  "name": "lit-card",
+  "name": "@quinntyne/{{ nameSnakeCase }}",
   "version": "1.0.0",
+  "private": false,
   "scripts": {
     "serve": "live-server",
     "build": "npx webpack --env production",

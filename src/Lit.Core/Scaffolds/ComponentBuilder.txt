@@ -34,4 +34,10 @@ export class {{ namePascalCase }}Component extends HTMLElement {
     }
 }
 
-window.customElements.define('lit-{{ nameSnakeCase }}', {{ namePascalCase }}Component);
+export function register{{ namePascalCase }}() {
+    try {
+      customElements.define('ce-{{ nameSnakeCase }}', {{ namePascalCase }}Component);
+    } catch {
+      console.warn('ce-{{ nameSnakeCase }} already registered');
+    }
+}
