@@ -26,12 +26,13 @@ namespace Lit.Core.Features
             private readonly ICommandService _commandService;
             private readonly IFileSystem _fileSystem;
             private readonly ITemplateLocator _templateLocator;
-
-            public Handler(ICommandService commandService, IFileSystem fileSystem, ITemplateLocator templateLocator)
+            private readonly ITemplateProcessor _templateProcessor;
+            public Handler(ICommandService commandService, IFileSystem fileSystem, ITemplateLocator templateLocator, ITemplateProcessor templateProcessor)
             {
                 _commandService = commandService;
                 _fileSystem = fileSystem;
                 _templateLocator = templateLocator;
+                _templateProcessor = templateProcessor;
             }
             public async Task<Unit> Handle(Request request, CancellationToken cancellationToken)
             {
@@ -43,7 +44,7 @@ namespace Lit.Core.Features
 
                 _fileSystem.WriteAllLines($"{libDirectory}{Path.DirectorySeparatorChar}tsconfig.json", new LibTSConfigBuilder().Build(_templateLocator));
 
-                _fileSystem.WriteAllLines($"{libDirectory}{Path.DirectorySeparatorChar}package.json", new PackageBuilder().Build(_templateLocator));
+                _fileSystem.WriteAllLines($"{libDirectory}{Path.DirectorySeparatorChar}package.json", new PackageBuilder(request.Name).Build(_templateLocator, _templateProcessor));
 
                 _fileSystem.WriteAllLines($"{libDirectory}{Path.DirectorySeparatorChar}src{Path.DirectorySeparatorChar}index.ts", Array.Empty<string>());
 
