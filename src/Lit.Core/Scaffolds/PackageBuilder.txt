@@ -1,6 +1,11 @@
 ﻿{
-  "name": "{{ nameSnakeCase }}",
+  "name": "lit-card",
   "version": "1.0.0",
+  "scripts": {
+    "serve": "live-server",
+    "build": "npx webpack --env production",
+    "watch": "npx webpack watch"
+  },
   "exports": {
     ".": "./dist/index.js"
   },
@@ -12,7 +17,7 @@
     }
   },
   "dependencies": {
-    "lit": "^2.0.0-rc.2",
+    "lit": "^2.0.0-rc.2",    
     "rxjs": "^7.3.0"
   },
   "devDependencies": {
@@ -27,6 +32,7 @@
     "ts-loader": "^9.2.4",
     "typescript": "^4.3.5",
     "webpack": "^5.47.1",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.7.2",
+    "live-server": "^1.2.1"
   }
 }

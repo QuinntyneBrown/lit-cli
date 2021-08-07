@@ -51,14 +51,26 @@ const config = {
       amd: 'rxjs',
       root: '_',
     },    
-  },
+  }
 };
 
-module.exports = () => {
-  if (isProduction) {
+
+module.exports = (env) => {
+  if (env.production) {
     config.mode = "production";
   } else {
     config.mode = "development";
   }
-  return config;
+  return [config, {
+    ...config,
+    ...{
+      output : {
+        filename: 'index.umd.js',
+        library: {
+          type: "umd"
+        }
+      },
+      externals: {}    
+    }
+  }];
 };
