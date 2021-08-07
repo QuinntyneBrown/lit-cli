@@ -40,7 +40,7 @@ namespace Lit.Core.Features
 
                 _commandService.Start("npm init", appDirectory);
 
-                _commandService.Start("npm install webpack-cli webpack @webpack-cli/generators style-loader --save-dev", appDirectory);
+                _commandService.Start("npm install webpack-cli webpack @webpack-cli/generators style-loader tsconfig-paths-webpack-plugin --save-dev", appDirectory);
 
                 _commandService.Start("npm install lit@2.0.0-rc.2 rxjs --save", appDirectory);
 
